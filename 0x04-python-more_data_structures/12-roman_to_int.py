@@ -26,10 +26,10 @@ def convert_roman_to_int(string):
         string = string.replace(delete, '')
     else:
         thousand = 0
-        hundred = check_digit(string, hundreds)
-        if hundred != -1:
-            delete = hundreds[hundred - 1]
-            string = string.replace(delete, '')
+    hundred = check_digit(string, hundreds)
+    if hundred != -1:
+        delete = hundreds[hundred - 1]
+        string = string.replace(delete, '')
     else:
         hundred = 0
     ten = check_digit(string, tens)
@@ -38,10 +38,10 @@ def convert_roman_to_int(string):
         string = string.replace(delete, '')
     else:
         ten = 0
-        digit = check_digit(string, digits)
-        if digit != -1:
-            delete = digits[digit - 1]
-            string = string.replace(delete, '')
+    digit = check_digit(string, digits)
+    if digit != -1:
+        delete = digits[digit - 1]
+        string = string.replace(delete, '')
     else:
         digit = 0
     return thousand * 1000 + hundred * 100 + ten * 10 + digit
