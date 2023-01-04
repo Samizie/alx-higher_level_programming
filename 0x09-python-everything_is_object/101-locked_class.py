@@ -4,7 +4,7 @@ LockedClass
 """
 
 
-class LockedClasss:
+class LockedClass:
     """ No class or object attributes, can't set
         Except for the first_name
     """
