@@ -4,6 +4,7 @@ This is the "Rectangle"  module.
 This module provides a Rectangle class.
 """
 
+
 class Rectangle:
     """A Rectangle class with attributes width and height
     methods area, perimeter, print, str, repr, and del, and
@@ -45,7 +46,7 @@ class Rectangle:
 
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
-    
+
     def __str__(self):
         total = ""
         for i in range(self.__height):
