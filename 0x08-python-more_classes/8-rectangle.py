@@ -4,11 +4,13 @@ This is the "Rectangle"  module.
 This module provides a Rectangle class.
 """
 
+
 class Rectangle:
-    """A Rectangle class with attributes width and height
+    """A Rectangle class with attributes width and height,
     methods area, perimeter, print, str, repr, and del, and
     class attribute number_of_instances that keeps track of # of instances,
-    and class attribute print_symbol which is used as symbol for printing.
+    class attribute print_symbol which is used as symbol for printing,
+    and static method bigger_or_equal that returns biggest rectangle.
     """
 
     number_of_instances = 0
@@ -43,9 +45,20 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
-    
+
     def __str__(self):
         total = ""
         for i in range(self.__height):
