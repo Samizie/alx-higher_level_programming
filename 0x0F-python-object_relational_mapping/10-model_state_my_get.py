@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""list all State objects containing letter a"""
+"""Return State object matching arg"""
 
 from sys import argv
 from model_state import Base, State
@@ -14,7 +14,10 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).\
-            filter(State.name.like('%a%')).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
+    states = session.query(State).\
+        filter(State.name == argv[4]).order_by(State.id).all()
+    if states:
+        print("{}".format(states[0].id))
+    else:
+        print("Not found")
     session.close()
